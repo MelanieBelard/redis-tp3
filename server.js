@@ -32,10 +32,10 @@ var server = http.createServer(function(req, res) {
 					res.write(reply);
 				});
 					res.write(response);
+			res.writeHead(200, {"Content-Type": "text/html"});
+			// res.end();
 				// console.log(response);
 			});
-			res.writeHead(200, {"Content-Type": "text/html"});
-			res.end();
 			//client.quit();
 		});
 	} else if (page.includes("/notes/")) {
