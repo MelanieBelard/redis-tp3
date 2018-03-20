@@ -6,7 +6,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-// var urlencodedparser = bodyParser.urlencoded({ extended: false });
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/plain');
@@ -16,7 +15,6 @@ app.get('/', function(req, res) {
 app.get('/notes', function(req, res) {
 	res.writeHead(200, {"Content-Type": "text/html"});
 	console.log("On est sur les notes.");
-	console.log(client.keys("*note*"));
 	var arr = [];
 	client.keys("*note*", function(err, replies) {
 		replies.forEach(function(key, i) {
@@ -45,7 +43,6 @@ app.get('/notes/:id', function(req, res) {
 			}
 		});
 	}
-	// console.log("id: "+id);
 });
 
 app.post("/notes", function(req, res) {
