@@ -2,6 +2,8 @@ var http = require('http');
 var url = require('url');
 var redis = require("redis"),
     client = redis.createClient();
+var express = require('express');
+var app = express();
 
 
 var server = http.createServer(function(req, res) {
@@ -31,9 +33,9 @@ var server = http.createServer(function(req, res) {
 					response += "    " + key + ": " + reply;
 					res.write(reply);
 				});
-					res.write(response);
-			res.writeHead(200, {"Content-Type": "text/html"});
-			// res.end();
+				res.write(response);
+				res.writeHead(200, {"Content-Type": "text/html"});
+				// res.end();
 				// console.log(response);
 			});
 			//client.quit();
